@@ -1,0 +1,9 @@
+/target/
+/work/
+*.db
+*.db-*
+*.sqlite*
+.fastembed_cache/
+.env
+.env.*
+.DS_Store

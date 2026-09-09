@@ -1,0 +1,30 @@
+name: CI
+on:
+  push:
+  pull_request:
+  workflow_dispatch:
+    inputs:
+      semantic:
+        description: Run model-backed multilingual retrieval evaluation
+        type: boolean
+        default: false
+permissions:
+  contents: read
+jobs:
+  check:
+    strategy:
+      matrix:
+        os: [ubuntu-latest, macos-latest]
+    runs-on: ${{ matrix.os }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: dtolnay/rust-toolchain@stable
+        with:
+          components: rustfmt, clippy
+      - uses: Swatinem/rust-cache@v2
+      - run: cargo fmt --check
+      - run: cargo clippy --locked --all-targets -- -D warnings
+      - run: cargo test --locked
+      - run: python3 scripts/smoke.py
+      - if: ${{ inputs.semantic && matrix.os == 'ubuntu-latest' }}
+        run: cargo test --locked --test semantic -- --ignored --nocapture

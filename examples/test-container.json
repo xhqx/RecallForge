@@ -1,0 +1,13 @@
+{
+  "title": "Test applications need their own dependency registration",
+  "kind": "lesson",
+  "problem": "An integration handler cannot resolve a service even though the production app works.",
+  "cause": "The test application assembles a separate dependency injection container.",
+  "solution": "Register the service in the test application module as well as the production module.",
+  "status": "candidate",
+  "verification": "Synthetic example. Verify against the target project before relying on it.",
+  "sources": [{"reference": "examples/test-container.json", "note": "Demonstration only"}],
+  "applies_to": "Projects with separately assembled test and production containers",
+  "tags": ["tests", "dependency-injection"],
+  "failed_attempts": ["Clearing caches does not register a missing dependency."]
+}
