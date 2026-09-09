@@ -11,6 +11,9 @@ Local verification on macOS Apple silicon with Rust 1.98:
 - `cargo fmt --check` and Clippy with warnings denied passed.
 - All three agent skills passed the skill frontmatter validator; CLI/MCP examples were reviewed
   against the implemented interface.
+- A fresh Codex CLI session using `gpt-5.6-luna` discovered the installed server, called
+  `project_list`, `memory_search`, and `memory_get`, and retrieved a saved English regression
+  lesson from a Russian symptom query. The acceptance session performed no memory writes.
 
 The model snapshot is pinned to `614241f622f53c4eeff9890bdc4f31cfecc418b3`. Tests run local
 ONNX inference, not mock embeddings. Deterministic storage tests use controlled vectors to

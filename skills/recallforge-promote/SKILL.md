@@ -33,6 +33,11 @@ should be preferred.
 
 ## Produce a reviewable draft
 
+Inspect the existing project skills before drafting. When a matching skill already owns
+the procedure, propose a focused patch to it instead of creating an overlapping skill.
+Preserve its unrelated guidance and trigger scope. For a new skill, keep the evidence
+references in a supporting file when they would distract from the working procedure.
+
 Write a portable English draft with:
 
 - a narrow name and trigger description, including explicit exclusions;
